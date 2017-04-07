@@ -21,7 +21,9 @@ namespace K12.Questionnaire
                 btn.Enable = UserAcl.Current["FEE2BDD7-29F1-48D4-A02E-7CA10737324D"].Executable;
                 btn.Click += delegate
                 {
-                    FISCA.Presentation.Controls.MsgBox.Show("功能尚未完成。");
+                    new ManagementQuestionnaire().ShowDialog();
+
+
                 };
             }
             {

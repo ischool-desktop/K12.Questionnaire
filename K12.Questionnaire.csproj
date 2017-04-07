@@ -90,6 +90,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ManagementQuestionnaire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagementQuestionnaire.Designer.cs">
+      <DependentUpon>ManagementQuestionnaire.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReplyProgress.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UDT\QuestionnaireForm.cs" />
+    <EmbeddedResource Include="ManagementQuestionnaire.resx">
+      <DependentUpon>ManagementQuestionnaire.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReplyProgress.resx">
       <DependentUpon>ReplyProgress.cs</DependentUpon>
     </EmbeddedResource>
