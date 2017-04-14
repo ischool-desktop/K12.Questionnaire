@@ -34,7 +34,8 @@ namespace K12.Questionnaire
                 btn.Enable = UserAcl.Current["62421DBC-34E1-4AEC-A832-6EDAC49A40A5"].Executable;
                 btn.Click += delegate
                 {
-                    FISCA.Presentation.Controls.MsgBox.Show("功能尚未完成。");
+                    new CourseAsignQuestionnaire().ShowDialog();
+
                 };
             }
             {
