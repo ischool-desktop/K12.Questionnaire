@@ -397,14 +397,23 @@ namespace K12.Questionnaire
 
                                 require.InnerText = ("" + dr.Cells[3].Value == "是") ? "true" : "false";
 
-                                XmlElement max = doc.CreateElement("Max");
-
-                                max.InnerText = "" + dr.Cells[4].Value;
-
                                 XmlElement min = doc.CreateElement("Min");
 
-                                min.InnerText = "" + dr.Cells[5].Value;
+                                min.InnerText = "" + dr.Cells[4].Value;
 
+                                if ("" + dr.Cells[4].Value == "" && "" + dr.Cells[3].Value == "是")
+                                {
+                                    min.InnerText = "1";                                                                
+                                }
+                                if ("" + dr.Cells[4].Value == "" && "" + dr.Cells[3].Value != "是")
+                                {
+                                    min.InnerText = "0";
+                                }
+
+                                XmlElement max = doc.CreateElement("Max");
+
+                                max.InnerText = "" + dr.Cells[5].Value;
+                                
                                 question.AppendChild(question_title);
                                 question.AppendChild(type);
                                 question.AppendChild(require);
@@ -447,14 +456,23 @@ namespace K12.Questionnaire
 
                                 require.InnerText = ("" + dr.Cells[3].Value == "是") ? "true" : "false";
 
-                                XmlElement max = doc.CreateElement("Max");
-
-                                max.InnerText = "" + dr.Cells[4].Value;
-
                                 XmlElement min = doc.CreateElement("Min");
 
-                                min.InnerText = "" + dr.Cells[5].Value;
+                                min.InnerText = "" + dr.Cells[4].Value;
 
+                                if ("" + dr.Cells[4].Value == "" && "" + dr.Cells[3].Value == "是")
+                                {
+                                    min.InnerText = "1";
+                                }
+                                if ("" + dr.Cells[4].Value == "" && "" + dr.Cells[3].Value != "是")
+                                {
+                                    min.InnerText = "0";
+                                }
+                                
+                                XmlElement max = doc.CreateElement("Max");
+
+                                max.InnerText = "" + dr.Cells[5].Value;
+                                
                                 question.AppendChild(question_title);
                                 question.AppendChild(type);
                                 question.AppendChild(require);
@@ -599,14 +617,25 @@ namespace K12.Questionnaire
 
                             require.InnerText = ("" + dr.Cells[3].Value == "是") ? "true" : "false";
 
-                            XmlElement max = doc.CreateElement("Max");
-
-                            max.InnerText = "" + dr.Cells[4].Value;
 
                             XmlElement min = doc.CreateElement("Min");
 
-                            min.InnerText = "" + dr.Cells[5].Value;
+                            min.InnerText = "" + dr.Cells[4].Value;
 
+
+                            if ("" + dr.Cells[4].Value == "" && "" + dr.Cells[3].Value == "是")
+                            {
+                                min.InnerText = "1";
+                            }
+                            if ("" + dr.Cells[4].Value == "" && "" + dr.Cells[3].Value != "是")
+                            {
+                                min.InnerText = "0";
+                            }
+
+                            XmlElement max = doc.CreateElement("Max");
+
+                            max.InnerText = "" + dr.Cells[5].Value;
+                            
                             question.AppendChild(question_title);
                             question.AppendChild(type);
                             question.AppendChild(require);
@@ -646,15 +675,24 @@ namespace K12.Questionnaire
                             XmlElement require = doc.CreateElement("Require");
 
                             require.InnerText = ("" + dr.Cells[3].Value == "是") ? "true" : "false";
+                            
+                            XmlElement min = doc.CreateElement("Min");
+
+                            min.InnerText = "" + dr.Cells[4].Value;
+
+                            if ("" + dr.Cells[4].Value == "" && "" + dr.Cells[3].Value == "是")
+                            {
+                                min.InnerText = "1";
+                            }
+                            if ("" + dr.Cells[4].Value == "" && "" + dr.Cells[3].Value != "是")
+                            {
+                                min.InnerText = "0";
+                            }
 
                             XmlElement max = doc.CreateElement("Max");
 
-                            max.InnerText = "" + dr.Cells[4].Value;
-
-                            XmlElement min = doc.CreateElement("Min");
-
-                            min.InnerText = "" + dr.Cells[5].Value;
-
+                            max.InnerText = "" + dr.Cells[5].Value;
+                            
                             question.AppendChild(question_title);
                             question.AppendChild(type);
                             question.AppendChild(require);
@@ -1025,10 +1063,10 @@ namespace K12.Questionnaire
                                     if (question.SelectSingleNode("Type").InnerText == "option")
                                     {
                                         //最少勾選
-                                        dr.Cells[4].Value = question.SelectSingleNode("Max") != null ? question.SelectSingleNode("Max").InnerText : "";
+                                        dr.Cells[4].Value = question.SelectSingleNode("Min") != null ? question.SelectSingleNode("Min").InnerText : "";
 
                                         //最多勾選
-                                        dr.Cells[5].Value = question.SelectSingleNode("Min") != null ? question.SelectSingleNode("Min").InnerText : "";
+                                        dr.Cells[5].Value = question.SelectSingleNode("Max") != null ? question.SelectSingleNode("Max").InnerText : "";
 
                                         dr.Cells[4].ReadOnly = false;
                                         dr.Cells[5].ReadOnly = false;

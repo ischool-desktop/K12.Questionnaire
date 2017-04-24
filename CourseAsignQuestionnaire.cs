@@ -211,10 +211,46 @@ namespace K12.Questionnaire
                 //使選擇年級 回到預設(空白)
                 grade_year_cbox.SelectedIndex = -1;
 
-                listview_already = false;                
+                listview_already = false;
+
+                
             };
 
             bkw.RunWorkerAsync();                        
+        }
+
+        private void renew_course_data_with_now_setting(string school_year, string semester)
+        {
+            BackgroundWorker bkw = new BackgroundWorker();
+
+            bkw.DoWork += delegate
+            {
+                QueryHelper q = new QueryHelper();
+
+                //  取得 課程之 課程名稱、group_id、年級、科目名稱
+                dt_course = q.Select("SELECT course.course_name,course.subject,course.group_id,class.grade_year FROM course LEFT JOIN class ON course.ref_class_id = class.id where school_year =" + "'" + school_year + "'" + "and semester =" + "'" + semester + "'");
+            };
+
+            bkw.RunWorkerCompleted += delegate
+            {
+                // 將抓下來的 dt_course  Column 同步給 dt_course_after_filter  Columns，後續才能做資料處理
+                foreach (DataColumn dc in dt_course.Columns)
+                {
+                    if (!dt_course_after_filter.Columns.Contains(dc.ColumnName))
+                    {
+                        dt_course_after_filter.Columns.Add(dc.ColumnName, dc.DataType);
+                    }
+                }
+
+                //使選擇年級 回到預設(空白)
+                //grade_year_cbox.SelectedIndex = -1;
+
+                listview_already = false;
+
+                show_all_selected_course();
+            };
+
+            bkw.RunWorkerAsync();
         }
 
         //點選左邊問卷List 項目
@@ -244,8 +280,9 @@ namespace K12.Questionnaire
                 //設定新的currentQ 為現在選的問卷項目
                 currentQ = Q;
 
-                // 更新課程項目
-                renew_course_data(schoolyear_cbox.Text, semester_cbox.Text);
+                // 更新課程項目(使用原有UI 學年度、學期 、年級、科目)
+                renew_course_data_with_now_setting(schoolyear_cbox.Text, semester_cbox.Text);
+
             }
         }
 
@@ -375,9 +412,16 @@ namespace K12.Questionnaire
 
         }
 
+        // 當 "列出所有已設定本問卷課程 " Chk 被 點選時
         private void list_all_checked_chkbox_Click(object sender, EventArgs e)
         {
+            show_all_selected_course();
+            
+        }
 
+
+        private void show_all_selected_course() 
+        {
             // 確認使用者 是否有遺忘儲存 改變後的資料
             if (asign_record_modified)
             {
@@ -460,13 +504,17 @@ namespace K12.Questionnaire
                 semester_cbox.Enabled = true;
                 grade_year_cbox.Enabled = true;
                 subject_cbox.Enabled = true;
-                
+
                 if (schoolyear_cbox.Text != "" && semester_cbox.Text != "")
                 {
                     subject_filter_process();
                 }
             }
+        
+        
+        
         }
+
 
         //判斷是否有修改
         private void course_listViewEx_ItemChecked(object sender, ItemCheckedEventArgs e)

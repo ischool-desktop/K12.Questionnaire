@@ -37,13 +37,6 @@
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.dataGridViewX1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.Column1 = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
-            this.Column4 = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.buttonX4 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
@@ -57,6 +50,13 @@
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.expandableSplitter1 = new DevComponents.DotNetBar.ExpandableSplitter();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.Column1 = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
+            this.Column4 = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -204,79 +204,6 @@
             this.dataGridViewX1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewX1_CellClick);
             this.dataGridViewX1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewX1_CellValueChanged);
             this.dataGridViewX1.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridViewX1_RowsRemoved);
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.DisplayMember = "Text";
-            this.Column1.DropDownHeight = 106;
-            this.Column1.DropDownWidth = 121;
-            this.Column1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Column1.FormattingEnabled = true;
-            this.Column1.HeaderText = "大題";
-            this.Column1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Column1.IntegralHeight = false;
-            this.Column1.ItemHeight = 17;
-            this.Column1.Name = "Column1";
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.HeaderText = "題目";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.DisplayMember = "Text";
-            this.Column3.DropDownHeight = 106;
-            this.Column3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Column3.DropDownWidth = 121;
-            this.Column3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Column3.HeaderText = "題型";
-            this.Column3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Column3.IntegralHeight = false;
-            this.Column3.ItemHeight = 17;
-            this.Column3.Name = "Column3";
-            this.Column3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Column3.Width = 60;
-            // 
-            // Column4
-            // 
-            this.Column4.DisplayMember = "Text";
-            this.Column4.DropDownHeight = 106;
-            this.Column4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Column4.DropDownWidth = 121;
-            this.Column4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Column4.HeaderText = "必填";
-            this.Column4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Column4.IntegralHeight = false;
-            this.Column4.ItemHeight = 17;
-            this.Column4.Name = "Column4";
-            this.Column4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Column4.Width = 60;
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column5.HeaderText = "最少勾選";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 85;
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column6.HeaderText = "最多勾選";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 85;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "編輯";
-            this.Column7.Name = "Column7";
             // 
             // buttonX4
             // 
@@ -491,6 +418,79 @@
             this.panel2.Size = new System.Drawing.Size(259, 668);
             this.panel2.TabIndex = 0;
             // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.DisplayMember = "Text";
+            this.Column1.DropDownHeight = 106;
+            this.Column1.DropDownWidth = 121;
+            this.Column1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Column1.FormattingEnabled = true;
+            this.Column1.HeaderText = "大題";
+            this.Column1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Column1.IntegralHeight = false;
+            this.Column1.ItemHeight = 17;
+            this.Column1.Name = "Column1";
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.HeaderText = "題目";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.DisplayMember = "Text";
+            this.Column3.DropDownHeight = 106;
+            this.Column3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Column3.DropDownWidth = 121;
+            this.Column3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Column3.HeaderText = "題型";
+            this.Column3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Column3.IntegralHeight = false;
+            this.Column3.ItemHeight = 17;
+            this.Column3.Name = "Column3";
+            this.Column3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Column3.Width = 60;
+            // 
+            // Column4
+            // 
+            this.Column4.DisplayMember = "Text";
+            this.Column4.DropDownHeight = 106;
+            this.Column4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Column4.DropDownWidth = 121;
+            this.Column4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Column4.HeaderText = "必填";
+            this.Column4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Column4.IntegralHeight = false;
+            this.Column4.ItemHeight = 17;
+            this.Column4.Name = "Column4";
+            this.Column4.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Column4.Width = 60;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column5.HeaderText = "最少勾選";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 85;
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column6.HeaderText = "最多勾選";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 85;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "選項";
+            this.Column7.Name = "Column7";
+            // 
             // ManagementQuestionnaire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -532,6 +532,8 @@
         private DevComponents.DotNetBar.LabelX labelX6;
         private DevComponents.DotNetBar.ExpandableSplitter expandableSplitter1;
         private System.Windows.Forms.Panel panel2;
+        private DevComponents.DotNetBar.Controls.TextBoxX StartTimetxt;
+        private DevComponents.DotNetBar.Controls.TextBoxX EndTimetxt;
         private DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn Column3;
@@ -539,7 +541,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewLinkColumn Column7;
-        private DevComponents.DotNetBar.Controls.TextBoxX StartTimetxt;
-        private DevComponents.DotNetBar.Controls.TextBoxX EndTimetxt;
     }
 }
