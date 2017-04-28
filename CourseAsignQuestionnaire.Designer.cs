@@ -32,6 +32,11 @@
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.itmPnlQuestionnaire = new DevComponents.DotNetBar.ItemPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.list_all_checked_chkbox = new System.Windows.Forms.CheckBox();
+            this.subject_cbox = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.labelX5 = new DevComponents.DotNetBar.LabelX();
+            this.grade_year_cbox = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.Modified_Indicator = new DevComponents.DotNetBar.LabelX();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
@@ -42,11 +47,6 @@
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.panel3 = new System.Windows.Forms.Panel();
             this.expandableSplitter1 = new DevComponents.DotNetBar.ExpandableSplitter();
-            this.grade_year_cbox = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.labelX4 = new DevComponents.DotNetBar.LabelX();
-            this.subject_cbox = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.labelX5 = new DevComponents.DotNetBar.LabelX();
-            this.list_all_checked_chkbox = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -116,10 +116,79 @@
             this.panel2.Controls.Add(this.schoolyear_cbox);
             this.panel2.Controls.Add(this.labelX1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(182, 0);
+            this.panel2.Location = new System.Drawing.Point(176, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(715, 473);
+            this.panel2.Size = new System.Drawing.Size(721, 473);
             this.panel2.TabIndex = 1;
+            // 
+            // list_all_checked_chkbox
+            // 
+            this.list_all_checked_chkbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.list_all_checked_chkbox.AutoSize = true;
+            this.list_all_checked_chkbox.Location = new System.Drawing.Point(515, 10);
+            this.list_all_checked_chkbox.Name = "list_all_checked_chkbox";
+            this.list_all_checked_chkbox.Size = new System.Drawing.Size(183, 21);
+            this.list_all_checked_chkbox.TabIndex = 31;
+            this.list_all_checked_chkbox.Text = "列出所有已設定本問卷課程";
+            this.list_all_checked_chkbox.UseVisualStyleBackColor = true;
+            this.list_all_checked_chkbox.Click += new System.EventHandler(this.list_all_checked_chkbox_Click);
+            // 
+            // subject_cbox
+            // 
+            this.subject_cbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.subject_cbox.DisplayMember = "Text";
+            this.subject_cbox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.subject_cbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.subject_cbox.FormattingEnabled = true;
+            this.subject_cbox.ItemHeight = 19;
+            this.subject_cbox.Location = new System.Drawing.Point(339, 8);
+            this.subject_cbox.Name = "subject_cbox";
+            this.subject_cbox.Size = new System.Drawing.Size(170, 25);
+            this.subject_cbox.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.subject_cbox.TabIndex = 30;
+            this.subject_cbox.SelectedIndexChanged += new System.EventHandler(this.subject_cbox_SelectedIndexChanged);
+            // 
+            // labelX5
+            // 
+            // 
+            // 
+            // 
+            this.labelX5.BackgroundStyle.Class = "";
+            this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX5.Location = new System.Drawing.Point(303, 11);
+            this.labelX5.Name = "labelX5";
+            this.labelX5.Size = new System.Drawing.Size(45, 23);
+            this.labelX5.TabIndex = 29;
+            this.labelX5.Text = "科目:";
+            // 
+            // grade_year_cbox
+            // 
+            this.grade_year_cbox.DisplayMember = "Text";
+            this.grade_year_cbox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.grade_year_cbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.grade_year_cbox.FormattingEnabled = true;
+            this.grade_year_cbox.ItemHeight = 19;
+            this.grade_year_cbox.Location = new System.Drawing.Point(254, 8);
+            this.grade_year_cbox.Name = "grade_year_cbox";
+            this.grade_year_cbox.Size = new System.Drawing.Size(43, 25);
+            this.grade_year_cbox.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.grade_year_cbox.TabIndex = 28;
+            this.grade_year_cbox.SelectedIndexChanged += new System.EventHandler(this.grade_year_cbox_SelectedIndexChanged);
+            // 
+            // labelX4
+            // 
+            // 
+            // 
+            // 
+            this.labelX4.BackgroundStyle.Class = "";
+            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX4.Location = new System.Drawing.Point(220, 10);
+            this.labelX4.Name = "labelX4";
+            this.labelX4.Size = new System.Drawing.Size(45, 23);
+            this.labelX4.TabIndex = 27;
+            this.labelX4.Text = "年級:";
             // 
             // Modified_Indicator
             // 
@@ -133,7 +202,7 @@
             this.Modified_Indicator.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.Modified_Indicator.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Modified_Indicator.ForeColor = System.Drawing.Color.Red;
-            this.Modified_Indicator.Location = new System.Drawing.Point(402, 441);
+            this.Modified_Indicator.Location = new System.Drawing.Point(408, 441);
             this.Modified_Indicator.Name = "Modified_Indicator";
             this.Modified_Indicator.Size = new System.Drawing.Size(127, 21);
             this.Modified_Indicator.TabIndex = 26;
@@ -145,7 +214,7 @@
             this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX2.Location = new System.Drawing.Point(626, 439);
+            this.buttonX2.Location = new System.Drawing.Point(632, 439);
             this.buttonX2.Name = "buttonX2";
             this.buttonX2.Size = new System.Drawing.Size(75, 23);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -158,7 +227,7 @@
             this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX1.Location = new System.Drawing.Point(535, 439);
+            this.buttonX1.Location = new System.Drawing.Point(541, 439);
             this.buttonX1.Name = "buttonX1";
             this.buttonX1.Size = new System.Drawing.Size(75, 23);
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -180,7 +249,7 @@
             this.course_listViewEx.CheckBoxes = true;
             this.course_listViewEx.Location = new System.Drawing.Point(6, 39);
             this.course_listViewEx.Name = "course_listViewEx";
-            this.course_listViewEx.Size = new System.Drawing.Size(695, 394);
+            this.course_listViewEx.Size = new System.Drawing.Size(701, 394);
             this.course_listViewEx.TabIndex = 4;
             this.course_listViewEx.UseCompatibleStateImageBehavior = false;
             this.course_listViewEx.View = System.Windows.Forms.View.List;
@@ -282,79 +351,10 @@
             this.expandableSplitter1.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
             this.expandableSplitter1.Location = new System.Drawing.Point(172, 0);
             this.expandableSplitter1.Name = "expandableSplitter1";
-            this.expandableSplitter1.Size = new System.Drawing.Size(10, 473);
+            this.expandableSplitter1.Size = new System.Drawing.Size(4, 473);
             this.expandableSplitter1.Style = DevComponents.DotNetBar.eSplitterStyle.Office2007;
             this.expandableSplitter1.TabIndex = 2;
             this.expandableSplitter1.TabStop = false;
-            // 
-            // grade_year_cbox
-            // 
-            this.grade_year_cbox.DisplayMember = "Text";
-            this.grade_year_cbox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.grade_year_cbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.grade_year_cbox.FormattingEnabled = true;
-            this.grade_year_cbox.ItemHeight = 19;
-            this.grade_year_cbox.Location = new System.Drawing.Point(254, 8);
-            this.grade_year_cbox.Name = "grade_year_cbox";
-            this.grade_year_cbox.Size = new System.Drawing.Size(43, 25);
-            this.grade_year_cbox.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.grade_year_cbox.TabIndex = 28;
-            this.grade_year_cbox.SelectedIndexChanged += new System.EventHandler(this.grade_year_cbox_SelectedIndexChanged);
-            // 
-            // labelX4
-            // 
-            // 
-            // 
-            // 
-            this.labelX4.BackgroundStyle.Class = "";
-            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(220, 10);
-            this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(45, 23);
-            this.labelX4.TabIndex = 27;
-            this.labelX4.Text = "年級:";
-            // 
-            // subject_cbox
-            // 
-            this.subject_cbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.subject_cbox.DisplayMember = "Text";
-            this.subject_cbox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.subject_cbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.subject_cbox.FormattingEnabled = true;
-            this.subject_cbox.ItemHeight = 19;
-            this.subject_cbox.Location = new System.Drawing.Point(339, 8);
-            this.subject_cbox.Name = "subject_cbox";
-            this.subject_cbox.Size = new System.Drawing.Size(164, 25);
-            this.subject_cbox.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.subject_cbox.TabIndex = 30;
-            this.subject_cbox.SelectedIndexChanged += new System.EventHandler(this.subject_cbox_SelectedIndexChanged);
-            // 
-            // labelX5
-            // 
-            // 
-            // 
-            // 
-            this.labelX5.BackgroundStyle.Class = "";
-            this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(303, 11);
-            this.labelX5.Name = "labelX5";
-            this.labelX5.Size = new System.Drawing.Size(45, 23);
-            this.labelX5.TabIndex = 29;
-            this.labelX5.Text = "科目:";
-            // 
-            // list_all_checked_chkbox
-            // 
-            this.list_all_checked_chkbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.list_all_checked_chkbox.AutoSize = true;
-            this.list_all_checked_chkbox.Location = new System.Drawing.Point(509, 10);
-            this.list_all_checked_chkbox.Name = "list_all_checked_chkbox";
-            this.list_all_checked_chkbox.Size = new System.Drawing.Size(183, 21);
-            this.list_all_checked_chkbox.TabIndex = 31;
-            this.list_all_checked_chkbox.Text = "列出所有已設定本問卷課程";
-            this.list_all_checked_chkbox.UseVisualStyleBackColor = true;
-            this.list_all_checked_chkbox.Click += new System.EventHandler(this.list_all_checked_chkbox_Click);
             // 
             // CourseAsignQuestionnaire
             // 

@@ -111,7 +111,7 @@ namespace K12.Questionnaire
             // 開始時間 檢查
             if (!DateTime.TryParse(StartTimetxt.Text, out start_time))
             {
-                MsgBox.Show("開始時間格式輸入錯誤，請修正。", "儲存失敗", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MsgBox.Show("開始時間格式輸入錯誤，請修正。(範例格式:2017/4/1 09:00:00 )", "儲存失敗", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return;
             }
@@ -119,13 +119,13 @@ namespace K12.Questionnaire
             // 結束時間 檢查
             if (!DateTime.TryParse(EndTimetxt.Text, out end_time))
             {
-                MsgBox.Show("結束時間格式輸入錯誤，請修正。", "儲存失敗", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MsgBox.Show("結束時間格式輸入錯誤，請修正。(範例格式:2017/4/1 23:59:59 )", "儲存失敗 ", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return;
             }
 
             // 開始時間與結束時間關係 檢查
-            if (start_time > end_time)
+            if (start_time > end_time || start_time == end_time)
             {
                 MsgBox.Show("開始時間必須早於結束時間，請修正。", "儲存失敗", MessageBoxButtons.OK, MessageBoxIcon.Error);
 

@@ -68,6 +68,7 @@ namespace K12.Questionnaire
             grade_year_cbox.Items.Add("1");
             grade_year_cbox.Items.Add("2");
             grade_year_cbox.Items.Add("3");
+            grade_year_cbox.Items.Add("");
 
             load_questionnaire_form();            
         }
@@ -150,8 +151,12 @@ namespace K12.Questionnaire
             {
                 itmPnlQuestionnaire.Items.Clear();
 
+                
+
                 foreach (QuestionnaireForm Q in formList)
                 {
+                    XmlDocument doc = new XmlDocument();
+
                     //假如問卷不是有要被刪除，就列出來
                     if (!Q.Deleted)
                     {
@@ -160,8 +165,15 @@ namespace K12.Questionnaire
                         btnItem.Tag = Q;
                         btnItem.OptionGroup = "itmPnlTimeName";
                         btnItem.ButtonStyle = eButtonStyle.ImageAndText;
-
+                        
                         btnItem.Click += new EventHandler(btnItem_Click);
+
+                        doc.LoadXml(Q.ContentString);
+
+                        if (doc.SelectSingleNode("Content").SelectNodes("Section").Count == 0) 
+                        {
+                            btnItem.Enabled = false;                                                
+                        }
 
                         // 預設 先選List 第一個項目 為"選擇狀態"
                         if (currentQ==null && Q == formList[0])
