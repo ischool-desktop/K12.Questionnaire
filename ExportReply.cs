@@ -206,10 +206,32 @@ WHERE form.uid = " + form.UID + " AND student_questionnaire.ref_group_id in ( " 
                                         foreach (XmlElement optionElement in questionElement.SelectNodes("Option"))
                                         {
                                             var option = optionElement.InnerText;
-                                            var path = sectionTitle + "_" + questionTitle + "_" + option;
-                                            dicPathCellIndex.Add(path, colIndex);
+                                                                                        
+                                            var path_ori = sectionTitle + "_" + questionTitle + "_" + option;
+
+                                            string path = string.Copy(path_ori);
+
+                                            if (!dicPathCellIndex.ContainsKey(path)) 
+                                            {
+                                                dicPathCellIndex.Add(path, colIndex);
+                                            }
+
+                                            //2017/6/14 穎驊新增，因應 介面讓使用者新增輸入新的KeyWord， 這邊一律將新的KeyWord以"%TEXT%"取代，方便後續產生表頭
+                                            option = option.Replace("%TEXT1%", "%TEXT%");
+                                            option = option.Replace("%TEXT2%", "%TEXT%");
+                                            option = option.Replace("%TEXT3%", "%TEXT%");
+                                            option = option.Replace("%TEXT4%", "%TEXT%");
+                                            option = option.Replace("%TEXT5%", "%TEXT%");
+                                            option = option.Replace("%RTEXT%", "%TEXT%");
+                                            option = option.Replace("%RTEXT1%", "%TEXT%");
+                                            option = option.Replace("%RTEXT2%", "%TEXT%");
+                                            option = option.Replace("%RTEXT3%", "%TEXT%");
+                                            option = option.Replace("%RTEXT4%", "%TEXT%");
+                                            option = option.Replace("%RTEXT5%", "%TEXT%");
+
                                             ws.Cells[rowIndex, colIndex++].PutValue("勾選[" + questionTitle + "][" + option.Replace("%TEXT%", "____") + "]");
-                                        }
+                                          
+                                        }                                        
                                     }
                                 }
                             }
@@ -227,13 +249,33 @@ WHERE form.uid = " + form.UID + " AND student_questionnaire.ref_group_id in ( " 
                                         foreach (XmlElement optionElement in questionElement.SelectNodes("Option"))
                                         {
                                             var option = optionElement.InnerText;
+
+                                            //2017/6/14 穎驊新增，因應 介面讓使用者新增輸入新的KeyWord， 這邊一律將新的KeyWord以"%TEXT%"取代，方便後續產生表頭
+                                            option = option.Replace("%TEXT1%", "%TEXT%");
+                                            option = option.Replace("%TEXT2%", "%TEXT%");
+                                            option = option.Replace("%TEXT3%", "%TEXT%");
+                                            option = option.Replace("%TEXT4%", "%TEXT%");
+                                            option = option.Replace("%TEXT5%", "%TEXT%");
+                                            option = option.Replace("%RTEXT%", "%TEXT%");
+                                            option = option.Replace("%RTEXT1%", "%TEXT%");
+                                            option = option.Replace("%RTEXT2%", "%TEXT%");
+                                            option = option.Replace("%RTEXT3%", "%TEXT%");
+                                            option = option.Replace("%RTEXT4%", "%TEXT%");
+                                            option = option.Replace("%RTEXT5%", "%TEXT%");
+
                                             if (option.Contains("%TEXT%"))
                                             {
                                                 var split = option.Split(new string[] { "%TEXT%" }, StringSplitOptions.None);
                                                 for (int i = 1; i < split.Length; i++)
                                                 {
+                                                    
                                                     var path = sectionTitle + "_" + questionTitle + "_" + option + "_split" + i;
-                                                    dicPathCellIndex.Add(path, colIndex);
+
+                                                    if (!dicPathCellIndex.ContainsKey(path))
+                                                    {
+                                                        dicPathCellIndex.Add(path, colIndex);
+                                                    }
+
                                                     ws.Cells[rowIndex, colIndex++].PutValue("填值[" + questionTitle + "][" + option.Replace("%TEXT%", "____") + "][值" + i + "]");
                                                 }
                                             }
@@ -288,6 +330,20 @@ WHERE form.uid = " + form.UID + " AND student_questionnaire.ref_group_id in ( " 
                                                 splitList.Add(splitElement.InnerText);
                                                 if (spliteIndex % 2 == 0)
                                                 {//填入自填值
+
+                                                    //2017/6/14 穎驊新增，因應 介面讓使用者新增輸入新的KeyWord， 這邊一律將新的KeyWord以"%TEXT%"取代，方便在dicPathCellIndex 中 找到對應 Key
+                                                    option = option.Replace("%TEXT1%", "%TEXT%");
+                                                    option = option.Replace("%TEXT2%", "%TEXT%");
+                                                    option = option.Replace("%TEXT3%", "%TEXT%");
+                                                    option = option.Replace("%TEXT4%", "%TEXT%");
+                                                    option = option.Replace("%TEXT5%", "%TEXT%");
+                                                    option = option.Replace("%RTEXT%", "%TEXT%");
+                                                    option = option.Replace("%RTEXT1%", "%TEXT%");
+                                                    option = option.Replace("%RTEXT2%", "%TEXT%");
+                                                    option = option.Replace("%RTEXT3%", "%TEXT%");
+                                                    option = option.Replace("%RTEXT4%", "%TEXT%");
+                                                    option = option.Replace("%RTEXT5%", "%TEXT%");
+
                                                     var path = sectionTitle + "_" + questionTitle + "_" + option + "_split" + (spliteIndex / 2);
                                                     if (dicPathCellIndex.ContainsKey(path))
                                                         ws.Cells[rowIndex, dicPathCellIndex[path]].PutValue(splitElement.InnerText);
